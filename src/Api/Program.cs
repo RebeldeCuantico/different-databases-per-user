@@ -42,8 +42,8 @@ namespace Api
                 var now = DateTime.UtcNow;
 
                 var result = await dbContext.Set<Category>().Where(e => EF.Property<DateTime?>(e, "DeleteDate") == null ||
-                                               EF.Property<DateTime?>(e, "DeleteDate") >= now).ToListAsync();
-                
+                                               EF.Property<DateTime?>(e, "DeleteDate") >= now).ToListAsync();              
+
                 return Results.Ok(result);
             })
            .WithName("GetAllCategories")
